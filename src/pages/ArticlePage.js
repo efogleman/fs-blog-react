@@ -29,7 +29,7 @@ const ArticlePage = () => {
         if (!isLoading) {
             loadArticleInfo();
         }
-    }, [isLoading, user]);
+    }, [isLoading, user, articleId]);
 
     const article = articles.find(article => article.name === articleId);
 
@@ -41,10 +41,10 @@ const ArticlePage = () => {
         setArticleInfo(updatedArticle);
     }
 
-    const clearAll = async () => {
+    const clearInteractions = async () => {
         const token = user && await user.getIdToken();
         const headers = token ? { authtoken: token } : {};
-        const response = await axios.put(`/api/articles/${articleId}/clear-all`, null, { headers });
+        const response = await axios.put(`/api/articles/${articleId}/clear-interactions`, null, { headers });
         const updatedArticle = response.data;
         setArticleInfo(updatedArticle);
     }
@@ -63,7 +63,7 @@ const ArticlePage = () => {
                     navigate('/login')
                 }}>Log in to upvote</button>
             }            
-            <p>This article has {articleInfo.upvotes} upvote(s)</p>
+            <span>This article has {articleInfo.upvotes} upvote(s)</span>
         </div>
         {article.content.map((paragraph, i) => (
             <p key={i}>{paragraph}</p>
@@ -74,12 +74,13 @@ const ArticlePage = () => {
                 onArticleUpdated={updatedArticle => setArticleInfo(updatedArticle)}
                 />
             : <button>Log in to add a comment</button>
-            }
+        }
 
         <CommentsList comments={articleInfo.comments} />
-        {user
-            ? <button onClick={clearAll}>Clear All</button>
-            : ''
+
+        {user && user.email === 'admin@my-blog.com'
+            ? <><br /><button onClick={clearInteractions}>Clear Interactions</button></>
+            : ""
         }
         </>
     );

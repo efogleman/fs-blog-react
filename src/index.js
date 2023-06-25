@@ -4,18 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDAg4F_rxoBKWyqQPxs5xalACVjnlcgakE",
-  authDomain: "my-react-blog-aa769.firebaseapp.com",
-  projectId: "my-react-blog-aa769",
-  storageBucket: "my-react-blog-aa769.appspot.com",
-  messagingSenderId: "248108273216",
-  appId: "1:248108273216:web:55a5f84fb03f95b421d9a5"
+  apiKey: "AIzaSyA5P7wXQs_psf1zLUh9GEYhzhksibmRgUI",
+  authDomain: "sunny-equinox-390717.firebaseapp.com",
+  projectId: "sunny-equinox-390717",
+  storageBucket: "sunny-equinox-390717.appspot.com",
+  messagingSenderId: "888209625131",
+  appId: "1:888209625131:web:ed892fc6e4f7677cb4da6e",
+  measurementId: "G-2SRYJ3ZZNH"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

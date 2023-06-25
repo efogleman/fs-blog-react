@@ -35,7 +35,9 @@ const LoginPage = () => {
             type='password'
             />
         <button onClick={logIn}>Log In</button>
-        <Link to="/create-account">Don't have an account? Create one here</Link>
+        <p>
+            <Link to="/create-account">Don't have an account? Create one here</Link>
+        </p>
         </>
     );
 };

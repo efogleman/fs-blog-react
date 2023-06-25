@@ -47,7 +47,9 @@ const CreateAccountPage = () => {
             type='password'
             />
         <button onClick={createAccount}>Create Account</button>
-        <Link to="/login">Already have an account? Log in here</Link>
+        <p>
+            <Link to="/login">Already have an account? Log in here</Link>
+        </p>
         </>
     );
 };
