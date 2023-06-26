@@ -5,17 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyA5P7wXQs_psf1zLUh9GEYhzhksibmRgUI",
-  authDomain: "sunny-equinox-390717.firebaseapp.com",
-  projectId: "sunny-equinox-390717",
-  storageBucket: "sunny-equinox-390717.appspot.com",
-  messagingSenderId: "888209625131",
-  appId: "1:888209625131:web:ed892fc6e4f7677cb4da6e",
-  measurementId: "G-2SRYJ3ZZNH"
-};
-
+import firebaseConfig from './firebaseConfig.json'
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
