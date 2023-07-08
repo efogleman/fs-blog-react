@@ -73,7 +73,9 @@ const ArticlePage = () => {
                 articleName={articleId}
                 onArticleUpdated={updatedArticle => setArticleInfo(updatedArticle)}
                 />
-            : <button>Log in to add a comment</button>
+            : <button onClick={ () => {
+                navigate('/login')
+            }}>Log in to add a comment</button>
         }
 
         <CommentsList comments={articleInfo.comments} />
